@@ -1,0 +1,1066 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Wanderly - Khám phá những điểm đến tuyệt đẹp tại Việt Nam và trên thế giới, lưu địa điểm yêu thích và lập kế hoạch du lịch."
+  >
+
+  <meta name="theme-color" content="#075cff">
+
+  <title>Wanderly — Discover Vietnam</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+
+<body>
+
+  <!-- ==============================
+       HEADER
+  =============================== -->
+  <header class="header">
+    <div class="header-inner container">
+
+      <a href="#home" class="logo" aria-label="Wanderly - Trang chủ">
+        <span class="logo-icon" aria-hidden="true">✳</span>
+
+        <span>
+          Wanderly
+          <span class="logo-dot">.</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Điều hướng chính">
+        <div class="nav-links">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#destinations" class="nav-link">Destinations</a>
+          <a href="#categories" class="nav-link">Tours</a>
+          <a href="#inspiration" class="nav-link">Hotels</a>
+          <a href="#planner" class="nav-link">Travel Guide</a>
+          <a href="#footer" class="nav-link">About</a>
+        </div>
+
+        <button
+          class="button"
+          type="button"
+          id="savedShortcut"
+          aria-pressed="false"
+          title="Xem địa điểm yêu thích"
+        >
+          ♡ YÊU THÍCH
+          <span id="savedCount">0</span>
+        </button>
+
+        <a href="#planner" class="button">
+          PLAN YOUR TRIP
+          <span aria-hidden="true">→</span>
+        </a>
+      </nav>
+
+      <button
+        class="mobile-menu"
+        id="mobileMenu"
+        type="button"
+        aria-label="Mở menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- ==============================
+         HERO
+    =============================== -->
+    <section class="hero" id="home">
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+
+        <span class="hero-eyebrow">
+          ✦ EXPLORE MORE · LIVE BETTER
+        </span>
+
+        <div class="hero-sticker" aria-hidden="true">
+          Discover!
+        </div>
+
+        <h1>
+          Discover
+          <span>Vietnam</span>
+        </h1>
+
+        <p>
+          Khám phá những hành trình tuyệt vời, từ thiên nhiên hùng vĩ
+          đến những thành phố sôi động và nền văn hóa đặc sắc.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#destinations" class="button button-primary">
+            KHÁM PHÁ NGAY <span aria-hidden="true">↗</span>
+          </a>
+
+          <a href="#planner" class="button button-light">
+            LÊN LỊCH TRÌNH
+          </a>
+        </div>
+
+        <div class="hero-stats">
+
+          <div class="hero-stat">
+            <strong>40+</strong>
+            <span>Điểm đến hấp dẫn</span>
+          </div>
+
+          <div class="hero-stat">
+            <strong>4.8/5</strong>
+            <span>Đánh giá du khách</span>
+          </div>
+
+          <div class="hero-stat">
+            <strong>24/7</strong>
+            <span>Luôn sẵn sàng khám phá</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Photo collage -->
+      <div class="hero-collage" aria-label="Ảnh cảm hứng du lịch">
+
+        <img
+          src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=85"
+          alt="Phong cảnh du lịch Việt Nam"
+          loading="eager"
+        >
+
+        <div class="hero-collage-caption">
+          Explore the world
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==============================
+         SEARCH
+    =============================== -->
+    <section class="search-section container" aria-label="Tìm kiếm chuyến đi">
+
+      <form class="search-panel" id="searchForm">
+
+        <div class="search-field">
+          <label for="destinationInput">
+            📍 Điểm đến
+          </label>
+
+          <input
+            type="search"
+            id="destinationInput"
+            name="destination"
+            placeholder="Bạn muốn đi đâu?"
+            autocomplete="off"
+          >
+        </div>
+
+        <div class="search-field">
+          <label for="typeInput">
+            ◈ Loại hình
+          </label>
+
+          <select id="typeInput" name="type">
+            <option value="all">Tất cả loại hình</option>
+            <option value="beach">Biển đảo</option>
+            <option value="mountain">Núi rừng</option>
+            <option value="city">Thành phố</option>
+            <option value="culture">Văn hóa</option>
+          </select>
+        </div>
+
+        <div class="search-field">
+          <label for="budgetInput">
+            ◷ Ngân sách tối đa (VNĐ)
+          </label>
+
+          <input
+            type="number"
+            id="budgetInput"
+            name="budget"
+            min="0"
+            step="100000"
+            placeholder="Không giới hạn"
+          >
+        </div>
+
+        <div class="search-field">
+          <label for="searchGuestCount">
+            ♙ Số khách
+          </label>
+
+          <select id="searchGuestCount" name="guests">
+            <option value="1">1 khách</option>
+            <option value="2" selected>2 khách</option>
+            <option value="3">3 khách</option>
+            <option value="4">4 khách</option>
+            <option value="5">5 khách</option>
+            <option value="6">6+ khách</option>
+          </select>
+        </div>
+
+        <button class="button button-primary" type="submit">
+          <span aria-hidden="true">⌕</span>
+          TÌM KIẾM
+        </button>
+
+      </form>
+
+    </section>
+
+
+    <!-- ==============================
+         CATEGORIES
+    =============================== -->
+    <section class="section container" id="categories">
+
+      <div class="section-heading">
+
+        <div>
+          <h2>
+            Explore by Category
+            <span class="heading-arrow">→</span>
+          </h2>
+
+          <p>
+            Chọn phong cách du lịch phù hợp với bạn.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="category-grid">
+
+        <button
+          class="category-card"
+          type="button"
+          data-type="beach"
+        >
+          <span class="category-icon">⌁</span>
+
+          <h3>Biển đảo</h3>
+
+          <p>
+            Sóng biển, bãi xanh, nghỉ dưỡng
+          </p>
+        </button>
+
+        <button
+          class="category-card"
+          type="button"
+          data-type="mountain"
+        >
+          <span class="category-icon">△</span>
+
+          <h3>Núi rừng</h3>
+
+          <p>
+            Thiên nhiên, trekking, khám phá
+          </p>
+        </button>
+
+        <button
+          class="category-card"
+          type="button"
+          data-type="city"
+        >
+          <span class="category-icon">▦</span>
+
+          <h3>Thành phố</h3>
+
+          <p>
+            Văn hóa, ẩm thực, trải nghiệm
+          </p>
+        </button>
+
+        <button
+          class="category-card"
+          type="button"
+          data-type="beach"
+        >
+          <span class="category-icon">⌂</span>
+
+          <h3>Resort cao cấp</h3>
+
+          <p>
+            Nghỉ dưỡng, tiện nghi, sang trọng
+          </p>
+        </button>
+
+        <button
+          class="category-card"
+          type="button"
+          data-type="culture"
+        >
+          <span class="category-icon">◇</span>
+
+          <h3>Văn hóa - Lịch sử</h3>
+
+          <p>
+            Di tích, lễ hội, làng nghề
+          </p>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==============================
+         FEATURED DESTINATIONS
+    =============================== -->
+    <section class="section container" id="destinations">
+
+      <div class="section-heading">
+
+        <div>
+          <h2>
+            Featured Destinations
+            <span class="heading-arrow">→</span>
+          </h2>
+
+          <p>
+            Những địa điểm nổi bật cho chuyến đi tiếp theo của bạn.
+          </p>
+        </div>
+
+        <div class="section-heading-actions">
+
+          <button
+            class="text-button"
+            id="footerSavedButton"
+            type="button"
+            aria-pressed="false"
+          >
+            ♡ Yêu thích
+          </button>
+
+          <button
+            class="text-button"
+            id="resetFiltersButton"
+            type="button"
+          >
+            Đặt lại
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="filter-tabs" id="filterTabs">
+
+        <button
+          class="filter-tab active"
+          type="button"
+          data-region="all"
+          aria-pressed="true"
+        >
+          Tất cả
+        </button>
+
+        <button
+          class="filter-tab"
+          type="button"
+          data-region="north"
+          aria-pressed="false"
+        >
+          Miền Bắc
+        </button>
+
+        <button
+          class="filter-tab"
+          type="button"
+          data-region="central"
+          aria-pressed="false"
+        >
+          Miền Trung
+        </button>
+
+        <button
+          class="filter-tab"
+          type="button"
+          data-region="south"
+          aria-pressed="false"
+        >
+          Miền Nam
+        </button>
+
+        <button
+          class="filter-tab"
+          type="button"
+          data-region="international"
+          aria-pressed="false"
+        >
+          Nước ngoài
+        </button>
+
+      </div>
+
+
+      <div
+        class="result-count"
+        id="resultCount"
+        aria-live="polite"
+      >
+        Đang tải điểm đến...
+      </div>
+
+
+      <div class="destination-grid" id="destinationGrid">
+        <!-- Destination cards rendered by app.js -->
+      </div>
+
+
+      <div class="empty-state" id="emptyState" hidden>
+
+        <div class="empty-state-icon">⌕</div>
+
+        <h3>Chưa tìm thấy điểm đến</h3>
+
+        <p>
+          Thử thay đổi từ khóa, vùng miền hoặc ngân sách của bạn.
+        </p>
+
+        <button
+          class="button button-primary"
+          id="emptyResetButton"
+          type="button"
+        >
+          Xóa bộ lọc
+        </button>
+
+      </div>
+
+
+      <div class="section-heading-actions" style="justify-content:center; margin-top:20px;">
+
+        <button
+          class="button button-outline"
+          id="showAllButton"
+          type="button"
+          hidden
+        >
+          Xem tất cả
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==============================
+         INSPIRATION
+    =============================== -->
+    <section class="section container" id="inspiration">
+
+      <div class="inspiration-layout">
+
+        <div class="inspiration-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1100&q=85"
+            alt="Khung cảnh nhiệt đới dành cho chuyến du lịch"
+            loading="lazy"
+          >
+
+          <div class="inspiration-badge">
+            <strong>Good people. Good trips.</strong>
+            <span>
+              Những hành trình đáng nhớ bắt đầu từ đây.
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="inspiration-copy">
+
+          <span class="section-kicker">
+            YOUR NEXT ADVENTURE
+          </span>
+
+          <h2>
+            Đi xa hơn.
+            <br>
+            Sống trọn vẹn hơn.
+          </h2>
+
+          <p>
+            Wanderly giúp bạn khám phá những điểm đến thú vị,
+            lưu lại địa điểm yêu thích và chủ động xây dựng
+            lịch trình phù hợp với ngân sách của mình.
+          </p>
+
+
+          <div class="feature-list">
+
+            <div class="feature-item">
+
+              <div class="feature-icon">⌖</div>
+
+              <div>
+                <h3>Khám phá điểm đến</h3>
+
+                <p>
+                  Tìm kiếm địa điểm theo vùng miền, sở thích và chi phí.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="feature-item">
+
+              <div class="feature-icon">♡</div>
+
+              <div>
+                <h3>Lưu những nơi bạn yêu thích</h3>
+
+                <p>
+                  Giữ danh sách địa điểm để dễ dàng xem lại.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="feature-item">
+
+              <div class="feature-icon">✎</div>
+
+              <div>
+                <h3>Lập kế hoạch cá nhân</h3>
+
+                <p>
+                  Quản lý ngày đi, ngày về, ghi chú và ngân sách.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="hero-actions">
+
+            <a href="#planner" class="button button-primary">
+              LÊN LỊCH TRÌNH <span aria-hidden="true">→</span>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==============================
+         TRIP PLANNER
+    =============================== -->
+    <section class="section planner-section" id="planner">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-kicker">
+              PLAN YOUR ADVENTURE
+            </span>
+
+            <h2>
+              My Travel Planner
+              <span class="heading-arrow">→</span>
+            </h2>
+
+            <p>
+              Tạo và quản lý kế hoạch cho chuyến đi tiếp theo.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="planner-layout">
+
+          <!-- Trip form -->
+          <div class="planner-card">
+
+            <h3 id="plannerFormTitle">
+              Tạo chuyến đi mới
+            </h3>
+
+            <p>
+              Điền thông tin để lưu lại kế hoạch của bạn.
+            </p>
+
+
+            <form id="tripForm" class="planner-form">
+
+              <input
+                type="hidden"
+                id="tripId"
+                name="tripId"
+              >
+
+
+              <div class="form-grid">
+
+                <div class="form-field form-field-full">
+
+                  <label for="tripName">
+                    Tên chuyến đi
+                  </label>
+
+                  <input
+                    type="text"
+                    id="tripName"
+                    name="tripName"
+                    placeholder="Ví dụ: Du lịch Đà Nẵng cùng bạn bè"
+                    maxlength="100"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="form-field form-field-full">
+
+                  <label for="tripDestination">
+                    Điểm đến
+                  </label>
+
+                  <select
+                    id="tripDestination"
+                    name="destinationId"
+                    required
+                  >
+                    <option value="">
+                      -- Chọn điểm đến --
+                    </option>
+                  </select>
+
+                </div>
+
+
+                <div class="form-field">
+
+                  <label for="tripStartDate">
+                    Ngày đi
+                  </label>
+
+                  <input
+                    type="date"
+                    id="tripStartDate"
+                    name="startDate"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="form-field">
+
+                  <label for="tripEndDate">
+                    Ngày về
+                  </label>
+
+                  <input
+                    type="date"
+                    id="tripEndDate"
+                    name="endDate"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="form-field form-field-full">
+
+                  <label for="tripBudget">
+                    Ngân sách dự kiến (VNĐ)
+                  </label>
+
+                  <input
+                    type="number"
+                    id="tripBudget"
+                    name="budget"
+                    min="0"
+                    step="100000"
+                    placeholder="Ví dụ: 5000000"
+                  >
+
+                </div>
+
+
+                <div class="form-field form-field-full">
+
+                  <label for="tripNotes">
+                    Ghi chú
+                  </label>
+
+                  <textarea
+                    id="tripNotes"
+                    name="notes"
+                    rows="3"
+                    maxlength="1000"
+                    placeholder="Các hoạt động muốn trải nghiệm, nơi lưu trú..."
+                  ></textarea>
+
+                </div>
+
+              </div>
+
+
+              <p
+                class="form-message"
+                id="tripFormMessage"
+                role="status"
+                aria-live="polite"
+              ></p>
+
+
+              <div class="form-actions">
+
+                <button
+                  class="button button-primary"
+                  id="saveTripButton"
+                  type="submit"
+                >
+                  LƯU CHUYẾN ĐI
+                </button>
+
+                <button
+                  class="button button-outline"
+                  id="cancelTripButton"
+                  type="button"
+                  hidden
+                >
+                  HỦY CHỈNH SỬA
+                </button>
+
+              </div>
+
+            </form>
+
+          </div>
+
+
+          <!-- Trip summary and saved trips -->
+          <aside class="planner-summary">
+
+            <span class="section-kicker">
+              YOUR TRAVEL BOOK
+            </span>
+
+            <h3>Chuyến đi của bạn</h3>
+
+            <p>
+              Tổng quan các lịch trình đã lưu trên trình duyệt này.
+            </p>
+
+
+            <div class="summary-stats">
+
+              <div class="summary-stat">
+                <span>Tổng chuyến đi</span>
+
+                <strong id="tripTotalCount">0</strong>
+              </div>
+
+              <div class="summary-stat">
+                <span>Tổng ngân sách</span>
+
+                <strong id="tripTotalBudget">0 đ</strong>
+              </div>
+
+            </div>
+
+
+            <div class="trip-list" id="tripList">
+              <!-- Saved trips rendered by app.js -->
+            </div>
+
+
+            <div class="empty-trips" id="emptyTripsState">
+
+              <p>
+                Bạn chưa có chuyến đi nào.
+                Hãy tạo lịch trình đầu tiên nhé!
+              </p>
+
+            </div>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==============================
+         QUOTE
+    =============================== -->
+    <section class="quote-section">
+
+      <div class="quote-mark" aria-hidden="true">“</div>
+
+      <blockquote>
+        The world is a book.
+        Those who do not travel read only one page.
+      </blockquote>
+
+      <p>
+        EVERY JOURNEY TELLS A STORY.
+      </p>
+
+    </section>
+
+
+    <!-- ==============================
+         NEWSLETTER
+    =============================== -->
+    <section class="newsletter-section">
+
+      <div class="container newsletter-layout">
+
+        <div class="newsletter-copy">
+
+          <span class="section-kicker">
+            WANDERLY JOURNAL
+          </span>
+
+          <h2>
+            Cảm hứng cho chuyến đi tiếp theo
+          </h2>
+
+          <p>
+            Đăng ký để nhận thông tin và ý tưởng du lịch mới.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <form class="newsletter-form" id="newsletterForm">
+
+            <input
+              type="email"
+              id="emailInput"
+              name="email"
+              placeholder="Địa chỉ email của bạn"
+              aria-label="Địa chỉ email"
+              required
+            >
+
+            <button
+              class="button button-primary"
+              type="submit"
+            >
+              ĐĂNG KÝ
+            </button>
+
+          </form>
+
+          <p
+            class="newsletter-message"
+            id="newsletterMessage"
+            role="status"
+            aria-live="polite"
+          ></p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ==============================
+       FOOTER
+  =============================== -->
+  <footer class="footer" id="footer">
+
+    <div class="container">
+
+      <div class="footer-layout">
+
+        <div>
+
+          <a href="#home" class="logo">
+            <span class="logo-icon" aria-hidden="true">✳</span>
+            <span>Wanderly<span class="logo-dot">.</span></span>
+          </a>
+
+          <p class="footer-description">
+            Wanderly là nơi bạn khám phá điểm đến mới,
+            lưu lại cảm hứng du lịch và tự xây dựng
+            những hành trình của riêng mình.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3>Khám phá</h3>
+
+          <ul class="footer-links">
+            <li><a href="#destinations">Điểm đến</a></li>
+            <li><a href="#categories">Danh mục</a></li>
+            <li><a href="#inspiration">Cảm hứng</a></li>
+          </ul>
+
+        </div>
+
+
+        <div>
+
+          <h3>Lập kế hoạch</h3>
+
+          <ul class="footer-links">
+            <li><a href="#planner">Lịch trình của tôi</a></li>
+
+            <li>
+              <button type="button" id="footerSavedButton">
+                Địa điểm yêu thích
+              </button>
+            </li>
+          </ul>
+
+        </div>
+
+
+        <div>
+
+          <h3>Wanderly</h3>
+
+          <ul class="footer-links">
+            <li><a href="#home">Về chúng tôi</a></li>
+            <li><a href="#footer">Liên hệ</a></li>
+            <li><a href="#planner">Bắt đầu hành trình</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <p>
+          © 2026 Wanderly. All rights reserved.
+        </p>
+
+        <p>
+          Made for travelers, by travelers.
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ==============================
+       DESTINATION DETAIL DIALOG
+  =============================== -->
+  <dialog
+    class="destination-dialog"
+    id="destinationDialog"
+    aria-label="Chi tiết điểm đến"
+  >
+
+    <div class="dialog-inner">
+
+      <button
+        class="dialog-close"
+        id="dialogClose"
+        type="button"
+        aria-label="Đóng"
+      >
+        ×
+      </button>
+
+      <div id="dialogContent">
+        <!-- Destination details rendered by app.js -->
+      </div>
+
+      <button
+        class="button button-primary"
+        id="dialogPlan"
+        type="button"
+        hidden
+      >
+        LÊN KẾ HOẠCH
+      </button>
+
+    </div>
+
+  </dialog>
+
+
+  <!-- ==============================
+       TOAST
+  =============================== -->
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+
+  <!-- ==============================
+       EMPTY FILTER RESET
+  =============================== -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const emptyResetButton = document.getElementById("emptyResetButton");
+      const resetFiltersButton = document.getElementById("resetFiltersButton");
+
+      if (emptyResetButton && resetFiltersButton) {
+        emptyResetButton.addEventListener("click", () => {
+          resetFiltersButton.click();
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
+
